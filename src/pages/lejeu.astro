@@ -1,0 +1,339 @@
+---
+import BiumizLayout from '@/layouts/BiumizLayout.astro';
+
+import { Image } from 'astro:assets';
+import doudou from '@assets/Doudou_NewDA-HD_Droite.webp';
+import uniteDiag from '@assets/UnitéDiag_NewDA-HD_Droite.webp';
+import fleur from '@assets/FleurChoupie.webp';
+
+const JeuFaqSchema = JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "FAQPage",
+	"mainEntity": [
+	{
+      "@type": "Question",
+      "name": "Qu'est-ce qu'un jeu immersif ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un jeu immersif est un jeu dans lequel le joueur a l'impression de faire partie du monde virtuel. Cette capacité à immerger le joueur en fait un média puissant d'apprentissage : concentration, émotions, expérience sensorielle complète.",
+      },
+    },
+	{
+      "@type": "Question",
+      "name": "Quels mécanismes rendent un jeu immersif ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+		"text": "Le mécanisme d'immersion systémique, quand les règles du jeu réagissent de manière logique aux actions du joueur ; le mécanisme d'immersion narrative et émotionnelle, quand le joueur ou la joueuse peut créer un lien psychologique avec l'histoirei ou les personnages ; le mécanisme d'immersion sensorielle, quand la technologie est utilisée pour eveiller et maintenir l'attention du joueur.",
+      },
+    },
+
+    {
+      "@type": "Question",
+      "name": "Qu'est-ce qu'un jeu engageant ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un jeu engageant maintient l'intérêt et la motivation sur le long terme. Il repose sur un équilibre entre défi et compétences, et répond à trois besoins : l'autonomie, le gain de compétences et l'identification ou l'appartenance.",
+      },
+    },
+
+	],
+});
+---
+<BiumizLayout
+		title="Biumiz, jeu multi-supports"
+		description="Biumiz repose sur trois composants produit sur trois supports différents."
+		breadcrumbs={[{ name: 'Biumiz', href: '/' }, { name: 'Le jeu', href: '/lejeu' }]}
+		faqScema = {JeuFaqSchema}
+>
+
+
+	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JeuFaqSchema}/>
+  	</Fragment>
+
+	<!-- les composants -->
+	<section class="section section--tinted" id="leJeu">
+		<div class="container">
+			<p class="section-eyebrow">Biumiz, le jeu narratif multi-support</p>
+			<h2 class="section-heading">Un univers ludique jusque <span class="highlight">dans le réel</span></h2>
+			<p class="section-lead">
+			Avec <strong>Biumiz</strong>, il ne s’agit pas d’exercices, mais de vivre de grandes histoires ! 
+			Grâce à notre toute nouvelle pédagogie expérientielle et immersive, l’enfant apprend l’interaction, l'entraide, l’empathie, il développe sa confiance en lui… et en anglais !</br>
+			Biumiz repose sur trois composants, ce qui en fait un jeu transmédia ou multi-supports.
+			</p>
+			<div class="piliers-list">
+				<div class="pilier-row">
+					<div class="pilier-image">
+						<Image src={uniteDiag} alt="Le jeu vidéo" 
+						width={1266} height={897} format="webp" />
+					</div>
+					<div class="pilier-content">
+						<h3 class="pilier-title"><span class="pilier-number">1</span> Le jeu vidéo</h3>
+						<p class="pilier-text">
+							Dans le jeu vidéo, l’enfant interagit oralement en anglais et vit des aventures 
+							spécifiquement conçues pour stimuler <strong>sa curiosité, son autonomie 
+								et son intelligence émotionnelle</strong>
+						</p>
+					</div>
+				</div>
+				<div class="pilier-row pilier-row--reverse">
+					<div class="pilier-image">
+						<Image src={fleur} alt="Application compagnon et livret" 
+						width={1500} height={1380} format="webp" />
+					</div>
+					<div class="pilier-content">
+						<h3 class="pilier-title"><span class="pilier-number">2</span> L'accompagnement de l'adulte</h3>
+						<p class="pilier-text">
+							Avec l’application compagnon et le livret, l’adulte dispose de tous les outils dont il a besoin 
+							pour <strong>soutenir le développement de l’enfant</strong>, suivre ses progrès et 
+							l’accompagner dans ses aventures en anglais. 
+						</p>
+					</div>
+				</div>
+				<div class="pilier-row">
+					<div class="pilier-image">
+						<Image src={doudou} alt="Jeu de société"
+						width={1696} height={1921} format="webp" />
+					</div>
+					<div class="pilier-content">
+						<h3 class="pilier-title"><span class="pilier-number">3</span> Le jeu de société</h3>
+						<p class="pilier-text">
+							Le jeu de société prolonge l’expérience dans le réel et crée des moments de partage 
+							pour entraîner <strong>les compétences relationnelles</strong>.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	
+  <section class="section faq" id="faq">
+    <div class="container">
+	<details class="faq-parent">
+        <summary>Qu'est-ce qu'un jeu immersif ?</summary>
+		<p>Un jeu immersif est un jeu dans lequel <strong>le joueur ou la joueuse a l'impression de faire partie 
+			du monde virtuel</strong>. C'est la capacité d'un jeu à immerger le joueur qui en fait un média 
+		puissant d'apprentissage : concentration, émotions, expérience sensorielle complète.</p>
+		<p>Pour un enfant entre 4 et 10 ans, nous recommandons de se limiter aux mécanismes d'immersion systémique, 
+		narrative et émotionnelle.</p>
+      </details>
+
+      <details class="faq-parent">
+        <summary>Quels mécanismes sont utilisés pour rendre un jeu immersif ?</summary>
+        <ul>
+          <li><strong>L'immersion systémique</strong> : les règles réagissent de manière logique aux actions du joueur.</li>
+          <li><strong>L'immersion narrative et émotionnelle</strong> : lien psychologique avec l'histoire et les personnages.</li>
+          <li><strong>L'immersion sensorielle</strong> : graphismes, son spatialisé, retours haptiques.</li>
+        </ul>
+      </details>
+
+      <details class="faq-parent">
+        <summary>Qu'est-ce qu'un jeu engageant ?</summary>
+		<p>Un jeu vidéo engageant <strong>maintient l'intérêt et la motivation sur le long terme</strong>. 
+		Il repose sur un équilibre entre défi et compétences, et répond à trois besoins :</p>
+        <ul>
+          <li><strong>L'autonomie</strong> : l'impression que ses décisions ont un impact,</li>
+          <li><strong>Le gain de compétences</strong> : le sentiment de progresser,</li>
+		  <li><strong>L'identification ou l'appartenance</strong> : se reconnaître dans un personnage 
+			  et partager son expérience.</li>
+        </ul>
+      </details>
+    </div>
+  </section>
+	<section class="cta-section">
+		<h2>Prêt à entrer dans l'aventure<br />qui fait grandir ?</h2>
+		<a href="/inscription" class="btn-primary">Rejoignez l'aventure !</a>
+	</section>
+ 
+</BiumizLayout>
+<style>
+	.section { 
+		padding: var(--section-gap) 0; 
+		background: var(--light-purple);
+	}
+	
+	.section--tinted {
+		background: linear-gradient(to bottom, var(--biumiz-bg-start), var(--biumiz-bg-end)) !important;
+		color: var(--white) !important;
+	}
+
+	.section-eyebrow {
+		font-size: 0.8rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		margin-bottom: 0.75rem;
+	}
+
+	.section-heading {
+		font-family: var(--font-display);
+		font-size: clamp(1.8rem, 4vw, 2.5rem);
+		font-weight: 400;
+		margin-bottom: 2rem;
+	}
+
+	.section-lead {
+		text-align: center;
+		max-width: 44rem;
+		margin: 0 auto 3rem;
+		font-size: 1.05rem;
+		line-height: 1.8;
+		opacity: 0.9;
+	}
+
+
+	.piliers-list {
+		display: flex;
+		flex-direction: column;
+		gap: 4rem; /* Espace entre les lignes de piliers */
+		width: 100%;
+	}
+
+	/* --- CHANGER DE CÔTÉ (GRID) --- */
+	.pilier-row {
+		display: grid;
+		grid-template-columns: 1fr; /* 1 colonne par défaut sur mobile */
+		gap: 2rem;
+		align-items: center;
+		text-align: center;
+	}
+
+	@media (min-width: 48rem) {
+		.pilier-row {
+			grid-template-columns: 1fr 1fr; /* 2 colonnes égales sur PC */
+			text-align: left;
+		}
+
+		/* La magie du CSS : pour la deuxième ligne, on inverse l'ordre visuel */
+		.pilier-row--reverse .pilier-image {
+			order: 2;
+		}
+
+		.pilier-row--reverse .pilier-content {
+			order: 1;
+		}
+	}
+
+	.pilier-image {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		overflow: visible !important; /* Force le contenu qui dépasse à rester visible */
+		padding-bottom: 1rem; /* Donne un peu d'espace en bas pour le halo */
+	}
+
+	.pilier-image img {
+		max-width: 22rem; /* Ajuste la taille des mascottes pour qu'elles restent élégantes */
+		display: block;
+		width: 100%; /* Occupe la largeur du wrapper */
+		height: auto !important; /* Force le navigateur à recalculer la hauteur proportionnellement */
+		object-fit: contain;
+	}
+
+	.pilier-content {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.pilier-title {
+		font-family: var(--font-body); /* Montserrat ou sans-serif pour garder le style épuré de l'image */
+		font-size: 1.5rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		display: flex;
+		align-items: center;
+		justify-content: center; /* Centré sur mobile */
+		gap: 0.75rem;
+	}
+
+	@media (min-width: 48rem) {
+		.pilier-title {
+		  justify-content: flex-start; /* Aligné à gauche sur PC */
+		}
+	}
+
+	.pilier-number {
+		background-color: var(--dark-yellow);
+		color: black;
+		font-size: 1rem;
+		font-weight: 700;
+		width: 2rem;
+		height: 2rem;
+		border-radius: 50%;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0; /* Empêche le rond de se déformer */
+	}
+
+	.pilier-text {
+		font-size: 1.05rem;
+		line-height: 1.7;
+		max-width: 38rem;
+		margin: 0 auto;
+	}
+
+	@media (min-width: 48rem) {
+		.pilier-text {
+		  margin: 0; /* Aligné au bord gauche sur PC */
+		}
+	}
+	
+	.quoting { 
+		font-size: 0.8rem; 
+		opacity: 0.7;
+		font-style: italic;
+	}
+
+	.faq { 
+		padding: 3rem 0; 
+	}
+	
+	/* Le parent Accordéon */
+	details.faq-parent { 
+		margin-bottom: 1rem; 
+		overflow: hidden; 
+		border-radius: 0.5rem;
+		text-align: left;
+	}
+
+	summary { 
+		padding: 1rem 1.5rem; 
+		cursor: pointer; 
+		font-weight: bold; 
+		transition: background-color 0.3s; 
+		color: var(--dark-purple); /* Texte sombre lisible */
+		list-style: none;
+	}
+	summary::-webkit-details-marker { display: none; } /* Enleve la flèche native */
+	summary::after { content: "+"; float: right; }
+	details[open] > summary::after { content: "−"; }
+
+	details.faq-parent p, 
+	details.faq-parent ul, 
+	details.faq-parent h3 { 
+		padding: 0.5rem 1.5rem; 
+		color: var(--dark-purple) !important; /* Force l'écriture en couleur lisible */
+	}
+
+	details.faq-parent a {
+		color: var(--deep-blue);
+	}
+
+
+	details.faq-parent ul {
+		margin-left: 3rem;
+		margin-bottom: 1rem;
+	}
+
+	.faq-child { 
+		margin-left: 1.5rem; 
+		margin-top: 0.5rem; 
+		border-radius: 0.25rem;
+	}
+	.faq-child > summary { font-size: 0.95rem; font-weight: 600; }
+
+
+</style>

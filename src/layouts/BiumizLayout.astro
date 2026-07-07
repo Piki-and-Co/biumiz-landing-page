@@ -1,0 +1,168 @@
+---
+import '@styles/biumiz.css';
+import { Image } from 'astro:assets';
+
+import logoImage from '@assets/logo.webp';
+import logoBiumizFull from '@assets/Logo_Biumiz-Full.webp';
+import linkedin from '@assets/Social-Linkedin_White.webp';
+import instagram from '@assets/Social-Insta_White.webp';
+import tiktok from '@assets/Social-TikTok_White.webp';
+import youtube from '@assets/Social-Youtube_White.webp';
+import facebook from '@assets/Social-Facebook_White.webp';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  faqSchema?: string;
+  breadcrumbs?: Array<{ name: string; href: string }>;
+}
+
+const {
+  title,
+  description = "Biumiz — L'application qui accompagne votre enfant.",
+  image,
+  faqSchema,
+  breadcrumbs = [],
+} = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
+
+const breadcrumbSchema = breadcrumbs.length > 0 ? JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Accueil", "item": new URL('/', Astro.site).href },
+    ...breadcrumbs.map((crumb, i) => ({
+      "@type": "ListItem",
+      "position": i + 2,
+      "name": crumb.name,
+      "item": new URL(crumb.href, Astro.site).href,
+    })),
+  ],
+}) : null;
+const ogImage = image
+  ? new URL(image, Astro.site).href
+  : new URL('/assets/logo.png', Astro.site).href;
+
+const appSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Biumiz",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Web, iOS, Android",
+  "description": "Application éducative qui accompagne les enfants de 4 à 10 ans dans le développement des compétences psychosociales via des jeux vidéo immersifs et engageants.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+  "author": {
+    "@type": "Organization",
+    "name": "Piki & Co",
+    "url": "https://piki-and-co.com",
+  },
+  "url": "https://biumiz.piki-and-co.com/",
+});
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content={description} />
+		<meta name="author" content="Piki & Co" />
+		<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+		<title>{title} | Biumiz</title>
+		<link rel="canonical" href={canonicalUrl} />
+		<link rel="icon" type="image/svg+xml" href="/assets/Logo_Biumiz-Full.svg" />
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:title" content={`${title} | Biumiz`} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:locale" content="fr_FR" />
+		<meta property="og:site_name" content="Biumiz by Piki & Co" />
+
+		<!-- Twitter / X -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={`${title} | Biumiz`} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImage} />
+
+		<!-- JSON-LD -->
+		<script type="application/ld+json" set:html={appSchema} />
+		{breadcrumbSchema && <script type="application/ld+json" set:html={breadcrumbSchema} />}
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+		<slot name="head" />
+		<!-- TarteAuCitron — consentement cookies -->
+		<script src="https://cdn.jsdelivr.net/npm/tarteaucitronjs@latest/tarteaucitron.js" is:inline></script>
+		<script src="/js/tarteaucitron-init.js" is:inline></script>
+
+		{faqSchema && <script type="application/ld+json" set:html={faqSchema} />}
+	</head>
+
+	<body>
+		<header>
+		</header>
+		<nav class="nav">
+			<a href="/" class="logo">
+				<Image src={logoImage} alt="Piki & Co" width={68} height={48} loading="eager" format="webp"/>
+			</a>
+			<button class="menu-toggle" aria-label="Ouvrir le menu">
+				<span class="bar"></span>
+				<span class="bar"></span>
+				<span class="bar"></span>
+			</button>
+			<div class="nav-menu"> 
+				<ul class="nav-links">
+					<li><a href="/">Accueil</a></li>
+					<li><a href="/cps">Les CPS</a></li>
+					<li><a href="/approche">Innovation</a></li>
+					<li><a href="/lejeu">Le jeu</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<main>
+			<slot />
+		</main>
+
+
+		<footer class="footer">
+			<p>&copy; {new Date().getFullYear()} Piki&nbsp;&amp;&nbsp;Co — Tous droits réservés</p>
+			<nav class="footer-socials" aria-label="Réseaux sociaux">
+				<a href="https://www.linkedin.com/company/piki-and-co" target="_blank" rel="noopener noreferrer">
+					<Image src={linkedin} alt="Linkedin company page Piki & Co" width={48} height={48} loading="eager" format="webp"/>
+				</a>
+				<a href="https://www.tiktok.com/@piki.and.co" target="_blank" rel="noopener noreferrer">
+					<Image src={tiktok} alt="TikTok profile Piki & Co" width={48} height={48} loading="eager" format="webp"/>
+				</a>	
+				<a href="https://www.instagram.com/piki.and.co/" target="_blank" rel="noopener noreferrer">
+					<Image src={instagram} alt="Instagram profile Piki & Co" width={48} height={48} loading="eager" format="webp"/>
+				</a>
+				<a href="https://www.facebook.com/61588273838732" target="_blank" rel="noopener noreferrer">
+					<Image src={facebook} alt="Facebook profile Piki & Co" width={48} height={48} loading="eager" format="webp"/>
+				</a>
+				<a href="https://www.youtube.com/@PikiAndCo" target="_blank" rel="noopener noreferrer">
+					<Image src={youtube} alt="Youtube chanel Piki & Co" width={48} height={48} loading="eager" format="webp"/>
+				</a>
+			</nav>
+			<p><a href="https://piki-and-co.com/legal/mention">Mentions légales</a> · <a href="https://piki-and-co.com/legal/privacy">Politique de confidentialité</a> · <a href="https://piki-and-co.com/legal/cookies">Cookies</a></p>
+		</footer>
+	</body>
+</html>
+
+<script>
+	const menuToggle = document.querySelector('.menu-toggle');
+	const navMenu = document.querySelector('.nav-menu');
+
+	if (menuToggle && navMenu) {
+		menuToggle.addEventListener('click', () => {
+			navMenu.classList.toggle('is-open');
+			menuToggle.classList.toggle('active');
+		});
+	}
+</script>

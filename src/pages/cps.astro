@@ -1,0 +1,257 @@
+---
+import BiumizLayout from '@/layouts/BiumizLayout.astro';
+
+import { Image } from 'astro:assets';
+
+const CpsFaqSchema = JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "FAQPage",
+	"mainEntity": [
+		{
+			"@type": "Question",
+			"name": "Qu'est-ce que la santé mentale positive ?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+					"text": "L'OMS définit la santé comme un état de complet bien-être physique, mental et social. La santé mentale positive correspond au sentiment de bien-être général et d'épanouissement social. Elle repose sur les compétences psychosociales (CPS) de la personne.",
+			},
+		},
+		{
+		"@type": "Question",
+		"name": "Qu'est-ce que les compétences psychosociales (CPS) ?",
+		"acceptedAnswer": {
+			"@type": "Answer",
+			"text": "Les CPS sont des ressources psychologiques permettant de faire face aux aléas de la vie. Elles sont centrales dans le programme de Santé Publique France et font l'objet d'actions prioritaires dans le cadre de la Grande Cause Nationale 2025-2026 sur la Santé Mentale.",
+			},
+		},
+	],
+});
+---
+<BiumizLayout
+		title="Les compétences humaines"
+		description="Le socle de l'équilibre mental et émotionnel de votre enfant."
+		breadcrumbs={[{ name: 'Biumiz', href: '/' }, { name: 'Les CPS', href: '/cps' }]}
+		faqScema = {CpsFaqSchema}
+>
+
+	<Fragment slot="head">
+		<script type="application/ld+json" set:html={CpsFaqSchema}/>
+  	</Fragment>
+
+
+	<!-- CPS -->
+	<section class="section section--tinted" id="CPS">
+		<div class="container">
+			<p class="section-eyebrow">Un jeu qui fait bien grandir</p>
+			<h2 class="section-heading">Les compétences psychosociales (CPS) : le socle de 
+				<span class="highlight" style="display:block;">la santé mentale positive</span></h2>
+			<p class="section-lead">
+				Ce sont les compétences de vie ou compétences humaines qui permettent à votre enfant 
+				de faire face aux défis de l'existence, de maintenir son équilibre émotionnel et de construire 
+				des relations solides tout au long de sa vie. 
+			</p>
+			<div class="grid">
+				<div class="card">
+					<span class="icon">🧠</span>
+					<h3>Compétences cognitives</h3>
+					<p>Conscience de soi, maîtrise de soi, pensée critique, prise de décision constructive, etc.</p>
+				</div>
+				<div class="card">
+					<span class="icon">💛</span>
+					<h3>Compétences émotionnelles</h3>
+					<p>Reconnaître, comprendre et savoir réguler ses émotions au quotidien.</p>
+				</div>
+				<div class="card">
+					<span class="icon">🤝</span>
+					<h3>Compétences sociales</h3>
+					<p>Empathie, communication efficace, création de lien, résolution de conflits.</p>
+				</div>
+			</div>
+			<footer class="impact-banner">
+				<p class="impact-text">
+					Lorsqu'elles sont bien développées, ces compétences <strong>réduisent l'anxiété, 
+					préviennent la dépression, améliorent le climat scolaire et favorisent la réussite</strong> 
+				</p>
+				<p class="quoting">(
+				<a href="https://www.santepubliquefrance.fr/sante-mentale/depression-et-anxiete/rapportsynthese/les-competences-psychosociales-etat-des-connaissances-scientifiques-et-theoriques"
+				   target="_blank" rel="noopener noreferrer">Santé Publique France, 2022</a> (mis à jour 2026) ; 
+			   <a href="https://tkautz.github.io/documents/Heckman_Kautz_2012_Hard%20Evidence.pdf"
+				  target="_blank" rel="noopener noreferrer">Heckman, J. Kautz, T., 2012</a>).</p>
+			</footer>
+		</div>
+	</section>
+
+	<section class="section faq" id="CPS-faq">
+    	<div class="container">
+			<p class="section-eyebrow">Questions fréquentes</p>
+			<details class="faq-parent">
+				<summary>Qu'est-ce que la santé mentale positive ?</summary>
+				<p>L'OMS définit la santé comme <q>un état de complet bien-être physique, mental et social</q>. 
+				Santé Publique France définit trois dimensions de la santé mentale :</p>
+					<ul>
+						<li><strong>La santé mentale positive</strong> : sentiment de bien-être général et 
+						d'épanouissement social.</li>
+						<li><strong>La résilience</strong> : capacité à faire face à la détresse psychologique.</li>
+						<li>La présence ou l'absence de troubles psychiatriques.</li>
+					</ul>
+					<p><strong>La santé mentale positive repose sur les compétences psychosociales</strong> de la personne 
+					— ses ressources psychologiques pour faire face aux aléas de la vie.</p>
+					<p><a href="https://www.santepubliquefrance.fr/maladies-et-traumatismes/sante-mentale" 
+						target="_blank" rel="noopener noreferrer">Page dédiée à la santé mentale — Santé Publique France</a></p>
+			</details>
+
+			<details class="faq-parent">
+				<summary>Où peut-on en apprendre plus sur les compétences psychosociales ?</summary>
+				<p>Les CPS sont centrales dans le programme de promotion de la santé mentale de Santé Publique France. 
+				Leur renforcement auprès des enfants fait l'objet d'actions prioritaires dans le cadre de la 
+				Grande Cause Nationale 2025-2026, la Santé Mentale.</p>
+				<p><a href="https://www.santepubliquefrance.fr/competences-psychosociales" 
+					  target="_blank" rel="noopener noreferrer">
+					Page dédiée aux compétences psychosociales — Santé Publique France</a></p>
+				</details>
+		</div>
+	</section>
+	<section class="cta-section">
+		<h2>Prêt à entrer dans l'aventure<br />qui fait grandir ?</h2>
+		<a href="/inscription" class="btn-primary">Rejoignez l'aventure !</a>
+	</section>
+</BiumizLayout>
+<style>
+	
+	a {
+		color: var(--deep-blue);
+	}
+	
+	/* CPS cards */
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+		gap: 1.5rem;
+		margin-bottom: 3rem;
+	}
+
+	.card {
+		background: white;
+		border: 2px solid var(--light-purple);
+		border-radius: 0.75rem;
+		padding: 2rem;
+		text-align: center;
+		box-shadow: 0 10px 30px -10px rgba(18, 19, 44, 0.3);
+		color: var(--dark-purple); /* Assure la lisibilité du texte dans la carte */
+	}
+
+	.icon { 
+		font-size: 2.5rem; 
+		display: block; 
+		margin-bottom: 1rem; 
+	}
+
+	.card h3 { 
+		margin-bottom: 0.5rem;
+		font-size: 1.1rem;
+		color: var(--dark-purple);
+	}
+
+	.card p { 
+		font-size: 0.9rem; 
+	}
+
+	.impact-banner {
+		background-color: var(--light-purple);
+		border-radius: 0.75rem;
+		padding: 1.25rem 2rem;
+		max-width: 42rem;
+		text-align: center;
+		margin: 3rem auto 0;
+	}
+
+	.impact-text {
+		font-size: 0.95rem;
+		line-height: 1.5;
+		color: var(--dark-purple);
+	}
+
+	.section { 
+		padding: var(--section-gap) 0; 
+		background: var(--light-purple);
+	}
+	
+	.section--tinted {
+		background: linear-gradient(to bottom, var(--biumiz-bg-start), var(--biumiz-bg-end)) !important;
+		color: var(--white) !important;
+	}
+
+	.section-eyebrow {
+		font-size: 0.8rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		margin-bottom: 0.75rem;
+	}
+
+	.section-heading {
+		font-family: var(--font-display);
+		font-size: clamp(1.8rem, 4vw, 2.5rem);
+		font-weight: 400;
+		margin-bottom: 2rem;
+	}
+
+	.section-lead {
+		text-align: center;
+		max-width: 44rem;
+		margin: 0 auto 3rem;
+		font-size: 1.05rem;
+		line-height: 1.8;
+		opacity: 0.9;
+	}
+	
+	.faq { 
+		padding: 3rem 0; 
+	}
+	
+	/* Le parent Accordéon */
+	details.faq-parent { 
+		margin-bottom: 1rem; 
+		overflow: hidden; 
+		border-radius: 0.5rem;
+		text-align: left;
+	}
+
+	summary { 
+		padding: 1rem 1.5rem; 
+		cursor: pointer; 
+		font-weight: bold; 
+		transition: background-color 0.3s; 
+		color: var(--dark-purple); /* Texte sombre lisible */
+		list-style: none;
+	}
+	summary::-webkit-details-marker { display: none; } /* Enleve la flèche native */
+	summary::after { content: "+"; float: right; }
+	details[open] > summary::after { content: "−"; }
+
+	details.faq-parent p, 
+	details.faq-parent ul, 
+	details.faq-parent h3 { 
+		padding: 0.5rem 1.5rem; 
+		color: var(--dark-purple) !important; /* Force l'écriture en couleur lisible */
+	}
+
+	details.faq-parent ul {
+		margin-left: 3rem;
+		margin-bottom: 1rem;
+	}
+
+	.faq-child { 
+		margin-left: 1.5rem; 
+		margin-top: 0.5rem; 
+		border-radius: 0.25rem;
+	}
+	.faq-child > summary { font-size: 0.95rem; font-weight: 600; }
+
+	.quoting { 
+		font-size: 0.8rem; 
+		opacity: 0.7;
+		font-style: italic;
+		color: var(--dark-purple);
+	}
+
+</style>

@@ -11,7 +11,7 @@ import logoBiumizFull from '@assets/Logo_Biumiz-Full.webp';
 import photoAmandine from '@assets/PhotoAmandine.webp';
 import photoKevin from '@assets/PhotoKevin.webp';
 import photoLaurence from '@assets/PhotoLaurence.webp';
-import photoIris from '@assets/LogoGramophone.webp';
+import photoIris from '@assets/PhotoIris.webp';
 import photoElodie from '@assets/PhotoElodie.webp';
 import photoCharlotte from '@assets/PhotoCharlotte.webp';
 import photoWren from '@assets/LogoWren.webp';
@@ -43,16 +43,16 @@ const team = [
 	},
 	{
 		prenom: "Iris",
-		nom: "Caulliez",
-		poste: "Game & Narrative Designer",
-		description: "Autrice de la narration et conceptrice des mécaniques de jeu",
+		nom: "Caulliez aka Gramophone",
+		poste: "Lead Game & Narrative Designer",
+		description: "Responsable de la conception du jeu, définit les contraintes ludiques et conçoit les expériences interactives et les histoires qui le composent.",
 		photo: photoIris
 	},
 	{
 		prenom: "Elodie",
 		nom: "Magnier",
 		poste: "Orthopédagogue & Neuropédagogue",
-		description: "Autrice de la progression en didactique des CPS, responsable de l'adéquation du jeu aux besoins des enfants",
+		description: "Responsable de l'adéquation du jeu aux besoins des enfants, autrice de la progression en didactique des CPS.",
 		photo: photoElodie
 	},
 	{
@@ -66,14 +66,14 @@ const team = [
 		prenom: "Wren",
 		nom: "Davies",
 		poste: "Graphiste/Illustratrice",
-		description: "Au côté de Charlotte dessine les décors et les personnages du jeu",
+		description: "Au côté de Charlotte, dessine les décors et les personnages du jeu",
 		photo: photoWren
 	},
 	{
 		prenom: "Kubra",
 		nom: "Dag",
 		poste: "Ingénieure pédagogique",
-		description: "Au côté de Laurence, conçoit l'accompagnement pédagogique de l'adulte et, avec Iris, les jeux de société",
+		description: "Conçoit l'accompagnement pédagogique de l'adulte et les jeux de société",
 		photo: photoKubra
 	}
 ];
@@ -239,6 +239,9 @@ const IndexFaqSchema = JSON.stringify({
 		<div class="container" style="text-align: center;">
 			<p class="section-eyebrow">Les créateurs.trices de Biumiz</p>
 			<h2 class="section-heading-pikico">L'équipe</h2>
+			<p class="section-lead">
+			Biumiz est le résultat de l'étroite collaboration entre des expert.e.s de différents métiers.
+			<p>
 			<div class="team-list">
 				{team.map((member) => (
 					<div class="team-card">

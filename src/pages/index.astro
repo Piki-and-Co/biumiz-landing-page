@@ -7,6 +7,9 @@ import conectus from '@assets/CONECTUS-BaselineFR_HD2018_Blanc.webp';
 import cnrs from '@assets/LOGO_CNRS_HD.webp';
 import unistra from '@assets/Unistra2_HD_FondBlanc.webp';
 import logoBiumizFull from '@assets/Logo_Biumiz-Full.webp';
+import logoEMS from '@assets/LogoEMS.webp';
+import logoAccro from '@assets/LogoAccro.webp';
+import logoTS2026 from '@assets/LogoTangoScan-2026.webp';
 
 import photoAmandine from '@assets/PhotoAmandine.webp';
 import photoKevin from '@assets/PhotoKevin.webp';
@@ -16,6 +19,8 @@ import photoElodie from '@assets/PhotoElodie.webp';
 import photoCharlotte from '@assets/PhotoCharlotte.webp';
 import photoWren from '@assets/LogoWren.webp';
 import photoKubra from '@assets/PhotoKubra.webp';
+import photoMegane from '@assets/PhotoMegane.webp';
+import photoQais from '@assets/PhotoQais.png';
 
 
 const team = [
@@ -66,9 +71,24 @@ const team = [
 		prenom: "Wren",
 		nom: "Davies",
 		poste: "Graphiste/Illustratrice",
-		description: "Au côté de Charlotte, dessine les décors et les personnages du jeu",
+		description: "Au côté de Charlotte, dessine les décors et les objets du jeu",
 		photo: photoWren
 	},
+	{
+		prenom: "Mégane",
+		nom: "Cuvelier",
+		poste: "Graphiste/Illustratrice",
+		description: "Au côté de Charlotte, dessine les personnages du jeu",
+		photo: photoMegane
+	},
+	{
+		prenom: "Qais",
+		nom: "Beguellel",
+		poste: "VFX Artist/Animateur",
+		description: "Produit les effets spéciaux visuels et les animations nécessaire à l'expérience ludique imaginée par Iris.",
+		photo: photoQais
+	},
+
 	{
 		prenom: "Kubra",
 		nom: "Dag",
@@ -210,6 +230,24 @@ const IndexFaqSchema = JSON.stringify({
 				</div>
 				<div class="partner-card">
 					<Image src={unistra} alt="Université de Strasbourg" 
+					width={3310} height={1193} loading="eager" format="webp"/>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<p class="section-eyebrow">Ils nous soutiennent</p>
+			<h2 class="section-heading">Nos soutiens</h2>
+			<div class="partners-grid">
+				<div class="partner-card">
+					<Image src={logoEMS} alt="Eurométropole de Strasbourg" 
+					width={6184} height={2009} loading="eager" format="webp"/>
+				</div>
+				<div class="partner-card">
+					<Image src={logoAccro} alt="Association Accro" 
+					width={705} height={705} loading="eager" format="webp"/>
+				</div>
+				<div class="partner-card">
+					<Image src={logoTS2026} alt="Concours Tango & Scan, lauréats 2026" 
 					width={3310} height={1193} loading="eager" format="webp"/>
 				</div>
 			</div>

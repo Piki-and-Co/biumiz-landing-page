@@ -1,6 +1,7 @@
 ---
 import '@styles/biumiz.css';
 import { Image } from 'astro:assets';
+import BaseHead from '../components/BaseHead.astro';
 
 import logoImage from '@assets/logo.webp';
 import logoBiumizFull from '@assets/Logo_Biumiz-Full.webp';
@@ -71,6 +72,7 @@ const appSchema = JSON.stringify({
 		<meta name="author" content="Piki & Co" />
 		<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 		<title>{title} | Biumiz</title>
+		<BaseHead />
 		<link rel="canonical" href={canonicalUrl} />
 		<link rel="icon" type="image/svg+xml" href="/assets/Logo_Biumiz-Full.svg" />
 

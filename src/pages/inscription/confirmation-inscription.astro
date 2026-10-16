@@ -5,7 +5,18 @@ import BiumizLayout from '@/layouts/BiumizLayout.astro';
 <BiumizLayout
   title="Inscription confirmée"
   description="Merci d'avoir rejoint la communauté Piki & Co !"
->
+  >
+
+<script is:inline>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){ dataLayer.push(arguments); }
+
+	gtag('event', 'conversion', {
+	  'send_to': 'AW-18368946321/vq1TCKP81OIcEJHB_7ZE'
+	});
+</script>
+	
+
   <section style="padding: 8rem 5%; min-height: 80vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
     <div style="max-width: 32rem;">
       <div style="font-size: 4rem; margin-bottom: 1.5rem;">🎉</div>

@@ -95,13 +95,34 @@ const appSchema = JSON.stringify({
 		<script type="application/ld+json" set:html={appSchema} />
 		{breadcrumbSchema && <script type="application/ld+json" set:html={breadcrumbSchema} />}
 
+<script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied',
+      'wait_for_update': 500
+    });
+</script>
+
+  <!-- TarteAuCitron — consentement cookies -->
+  <script src="https://cdn.jsdelivr.net/npm/tarteaucitronjs@latest/tarteaucitron.js" is:inline></script>
+  <script src="/js/tarteaucitron-init.js" is:inline></script>
+
+<script>
+	(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push(
+		{'gtm.start': new Date().getTime(),event:'gtm.js'});
+		var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})
+	(window,document,'script','dataLayer','GTM-5M6WCL6S');
+</script>
+
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
 		<slot name="head" />
-		<!-- TarteAuCitron — consentement cookies -->
-		<script src="https://cdn.jsdelivr.net/npm/tarteaucitronjs@latest/tarteaucitron.js" is:inline></script>
-		<script src="/js/tarteaucitron-init.js" is:inline></script>
 
 		{faqSchema && <script type="application/ld+json" set:html={faqSchema} />}
 	</head>
